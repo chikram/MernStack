@@ -1,23 +1,23 @@
-//this is the method that attact env veriable for the process object
-require('dotenv').config();
+require('dotenv').config()
 
-const express= require('express');
+const express = require('express')
+const workoutRoutes = require('./routes/workouts')
 
-//express app
-const app=express();
+// express app
+const app = express()
 
-//middleware
-app.use((req,res,next)=>{
-    console.log(req.path,req.method);
-    next();
+// middleware
+app.use(express.json())
+
+app.use((req, res, next) => {
+  console.log(req.path, req.method)
+  next()
 })
 
-//routes
-app.get('/',(req,res)=>{
-res.json({mesg:"Welcome to the app"})
-})
+// routes
+app.use('/api/workouts', workoutRoutes)
 
-//listen for request
-app.listen(process.env.PORT,()=>{
-    console.log("listening on port ",process.env.PORT);
+// listen for requests
+app.listen(process.env.PORT, () => {
+  console.log('listening on port', process.env.PORT)
 })
