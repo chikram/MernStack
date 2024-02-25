@@ -1,5 +1,9 @@
 const express = require('express')
 
+//importing schemas
+const Workout=require('../models/workoutMdodel')
+
+//creating router
 const router = express.Router()
 
 // get all workouts
@@ -8,13 +12,20 @@ router.get('/', (req, res) => {
 })
 
 // get a single workout
-router.get('/:id', (req, res) => {
+router.get('/:id',(req, res) => {
   res.json({mssg: 'GET a single workout'})
 })
 
 // post a new workout
-router.post('/', (req, res) => {
-  res.json({mssg: 'POST a new workout'})
+router.post('/', async(req, res) => {
+  //detail of schema
+  const{title,reps,load}=req.body
+  try{
+const workout = await Workout.create({title,reps,load})
+res.status(200).json(workout)
+  }catch(error){
+res.status(400).json({error: error.message})
+  }
 })
 
 // delete a workout
