@@ -1,11 +1,24 @@
 import './App.css';
+import NavBar from './components/NavBar';
+import Home from './screen/Home';
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="container">
-    <h1>Frontend</h1>
+    <div className="container-fluide mx-1">
+      <BrowserRouter>
+    <NavBar/>
+      <Routes>
+        <Route
+        path='/'
+        element={<Home/>}
+        />
+      </Routes>
+      </BrowserRouter>
     </div>
+   
   );
+
 }
 
 export default App;
