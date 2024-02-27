@@ -5,7 +5,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="container-fluide">
+    <div className="container-fluide ">
       <BrowserRouter>
     <NavBar/>
       <Routes>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 
 import WorkoutsDetail from "../components/WorkoutsDetail"
+import WorkoutForm from "../components/WorkoutForm"
 
 
 function Home() {
@@ -19,12 +20,17 @@ function Home() {
     }, [])
     return (
         <>
-            <div className="container my-5">
+        <div className="row">
+            <div className="col-6 ms-4 my-5">
                 {workouts && workouts.map((workout)=>(
 
                     <WorkoutsDetail key={workout._id} prob={workout}/>
                 ))}
-                
+            </div>
+            <div className="col-4 my-5">
+            <WorkoutForm/>
+            </div>
+           
             </div>
         </>
     )
