@@ -1,10 +1,13 @@
 
-function Home(){
+import WorkoutsDetail from "../components/WorkoutsDetail"
 
-    return(
+
+function Home() {
+    return (
         <>
-
-        <h1>home</h1>
+            <div className="container my-5">
+                <WorkoutsDetail />
+            </div>
         </>
     )
 }
