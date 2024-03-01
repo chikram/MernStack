@@ -1,30 +1,30 @@
 const express = require('express')
 
 //exporting the controller
-const{
+const {
   createWorkout,
   getWorkouts,
   getworkout,
   deleteWorkout,
   updateWorkout
-}=require('../controlers/workoutControler')
+} = require('../controlers/workoutControler')
 
 //creating router
 const router = express.Router()
 
 // get all workouts
-router.get('/',getWorkouts)
+router.get('/', getWorkouts)
 
 // get a single workout
-router.get('/:id',getworkout)
+router.get('/:id', getworkout)
 
 // post a new workout
-router.post('/',createWorkout)
+router.post('/', createWorkout)
 
 // delete a workout
-router.delete('/:id',deleteWorkout)
+router.delete('/:id', deleteWorkout)
 
 // update a workout
-router.patch('/:id',updateWorkout)
+router.patch('/:id', updateWorkout)
 
 module.exports = router
